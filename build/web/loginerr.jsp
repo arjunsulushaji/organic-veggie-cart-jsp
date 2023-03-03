@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Super Market an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Login :: w3layouts</title>
+        <title>Super Market an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Registered :: w3layouts</title>
         <!-- for-mobile-apps -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -47,22 +47,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="w3l_offers">
                     <p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="products.html">SHOP NOW</a></p>
                 </div>
-               
+                
                 <div class="clearfix"> </div>
             </div>
         </div>
 
         <div class="logo_products">
-            <div class="container">
+            <div class="container">               
                 <div class="w3ls_logo_products_left">
-                    <h1><a href="index.html">super Market</a></h1>
+                    <h1><a href="index.html">Organic Veggies</a></h1>
                 </div>
                 <div class="w3l_search">
                     <form action="#" method="post">
-                        <input type="search" name="Search" placeholder="Search for a Product..." required="">
-                        <button type="submit" class="btn btn-default search" aria-label="Left Align">
+<!--                        <input type="search" name="Search" placeholder="Search for a Product..." required="">-->
+<!--                        <button type="submit" class="btn btn-default search" aria-label="Left Align">
                             <i class="fa fa-search" aria-hidden="true"> </i>
-                        </button>
+                        </button>-->
                         <div class="clearfix"></div>
                     </form>
                 </div>
@@ -81,48 +81,34 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
 
         <!-- //navigation -->
-
-        <!-- login -->
-        <div class="login">
+        <!-- register -->
+        <div class="register">
             <div class="container">
-                <h2>Login Form</h2>
-
-                <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
-                    <form action="loginnext.jsp" method="post">
-                        <input type="email" placeholder="Email Address" required=" " name="EMAIL">
-                        <input type="password" placeholder="Password" required=" " name="PASSWORD">
-                        <div class="forgot">
-                            <a href="#">Forgot Password?</a>
-                        </div>
-                        <input type="submit" value="Login">
-                    </form>
+                <h2 style="margin-top: 4rem;">Incorrect Email or Password</h2>            
+                <div class="register-home">
+                    <a href="login.jsp">Login</a>
                 </div>
-                <h4>For New People</h4>
-                <p><a href="signup.jsp">Register Here</a> (Or) go back to <a href="index.jsp">Home<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
             </div>
         </div>
-        <!-- //login -->
-        <!-- //footer -->
-       	
-        <!-- //footer -->	
+        <!-- //register -->	
         <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>
         <!-- top-header and slider -->
         <!-- here stars scrolling icon -->
         <script type="text/javascript">
-    $(document).ready(function () {
-        /*
-         var defaults = {
-         containerID: 'toTop', // fading element id
-         containerHoverID: 'toTopHover', // fading element hover id
-         scrollSpeed: 1200,
-         easingType: 'linear' 
-         };
-         */
+            $(document).ready(function () {
+                /*
+                 var defaults = {
+                 containerID: 'toTop', // fading element id
+                 containerHoverID: 'toTopHover', // fading element hover id
+                 scrollSpeed: 1200,
+                 easingType: 'linear' 
+                 };
+                 */
 
-        $().UItoTop({easingType: 'easeOutQuart'});
+                $().UItoTop({easingType: 'easeOutQuart'});
 
-    });
+            });
         </script>
         <!-- //here ends scrolling icon -->
         <script src="js/minicart.min.js"></script>

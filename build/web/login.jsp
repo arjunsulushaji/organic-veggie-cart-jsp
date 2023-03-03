@@ -88,9 +88,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <h2>Login Form</h2>
 
                 <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
-                    <form>
-                        <input type="email" placeholder="Email Address" required=" " >
-                        <input type="password" placeholder="Password" required=" " >
+                    <form action="loginnext.jsp" method="post">
+                        <input type="email" placeholder="Email Address" required=" " name="EMAIL">
+                        <input type="password" placeholder="Password" required=" " name="PASSWORD">
                         <div class="forgot">
                             <a href="#">Forgot Password?</a>
                         </div>
