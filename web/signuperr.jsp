@@ -1,27 +1,9 @@
-<%
-      int i=100;
-      try
-      {
-      Class.forName("com.mysql.jdbc.Driver");  
-    java.sql.Connection con=java.sql.DriverManager.getConnection( "jdbc:mysql://localhost:3306/organic_veggies","root","");  
-    //here sonoo is database name, root is username and password  
-    java.sql.Statement stmt=con.createStatement();  
-    String sele="select * from signup";
-    java.sql.ResultSet rs=stmt.executeQuery(sele);  
-    while(rs.next())  
-        i++;
-    con.close();  
-    }catch(Exception ee)
-    {
-    out.println("error "+ee);
-   }
-%>
-<%
-  long currentTime = System.currentTimeMillis();
-%>
-
-
-
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -65,7 +47,7 @@
                 <div class="w3l_offers">
                     <p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="products.html">SHOP NOW</a></p>
                 </div>
-
+                
                 <div class="clearfix"> </div>
             </div>
         </div>
@@ -77,10 +59,10 @@
                 </div>
                 <div class="w3l_search">
                     <form action="#" method="post">
-                        <input type="search" name="Search" placeholder="Search for a Product..." required="">
-                        <button type="submit" class="btn btn-default search" aria-label="Left Align">
+<!--                        <input type="search" name="Search" placeholder="Search for a Product..." required="">-->
+<!--                        <button type="submit" class="btn btn-default search" aria-label="Left Align">
                             <i class="fa fa-search" aria-hidden="true"> </i>
-                        </button>
+                        </button>-->
                         <div class="clearfix"></div>
                     </form>
                 </div>
@@ -102,47 +84,9 @@
         <!-- register -->
         <div class="register">
             <div class="container">
-                <h2>Signup Here</h2>
-                <div class="login-form-grids">
-                    <h6>Signup information</h6>
-                    <form action="signupnext.jsp" method="post">
-                        <input type="text" value="UID<%=i%><%=currentTime%>" required=" " name="ID" style="display:none;">
-                        <input type="text" placeholder="Name" required=" " name="NAME" >
-                        <input type="email" placeholder="Email Address" required=" " name="EMAIL">
-                        <input type="password" placeholder="Password" required=" " name="PASSWORD" >
-                        <input type="number" placeholder="Mobilel Number" required="" name="MOBNO">
-                        <input type="text" placeholder="Address" required="" name="ADDRESS">
-                        <select name="DISTRICT" id="" class="mt-2" required="" style="width: 244px;
-                                height: 38px;
-                                font-family: monospace;
-                                padding-left: 13px;" required="">
-                            <option value="DISTRICT">DISTRICT</option>
-                            <option value="KASARGOD">KASARGOD</option>
-                            <option value="KANNUR">KANNUR</option>
-                            <option value="KOZHIKODE">KOZHIKODE</option>
-                            <option value="MALAPPURAM">MALAPPURAM</option>
-                            <option value="THRISSUR">THRISSUR</option>
-                            <option value="ERNAKALUM">ERNAKALUM</option>
-                            <option value="KOTTAYAM">KOTTAYAM</option>
-                            <option value="ALAPPUZHA">ALAPPUZHA</option>
-                            <option value="KOLLAM">KOLLAM</option>
-                            <option value="THRIVANANTHAPURAM">THRIVANANTHAPURAM</option>
-                            <option value="WAYANAD">WAYANAD</option>
-                            <option value="PALAKKAD">PALAKAD</option>
-                            <option value="IDUKKI">IDUKKI</option>
-                            <option value="PATHANAMTHITTA">PATHANAMTHITTA</option>
-                        </select>
-
-                        <div class="register-check-box">
-                            <div class="check">
-                                <label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>I accept the terms and conditions</label>
-                            </div>
-                        </div>
-                        <input type="submit" value="Register">
-                    </form>
-                </div>
+                <h2 style="margin-top: 4rem;">User alerady exist</h2>            
                 <div class="register-home">
-                    <a href="index.jsp">Home</a>
+                    <a href="signup.jsp">Signup</a>
                 </div>
             </div>
         </div>

@@ -908,7 +908,7 @@ a.w3_agile_vimeo:hover{
 	background:#F7F7F9;
 	margin:1em auto 0;
 }
-.login-form-grids input[type="email"],.login-form-grids input[type="password"],.login-form-grids input[type="text"]{
+.login-form-grids input[type="email"],.login-form-grids input[type="number"],.login-form-grids input[type="password"],.login-form-grids input[type="text"]{
 	outline: none;
     border: 1px solid #DBDBDB;
     padding: 10px 10px 10px 10px;
@@ -997,6 +997,15 @@ a.w3_agile_vimeo:hover{
         margin:1em 0;
 }
 .login-form-grids input[type="text"]:nth-child(2){
+	background:url(../images/img-sp.png) no-repeat 0px -298px #fff;
+	margin:1em 0;
+}
+
+.login-form-grids input[type="number"]{
+	background:url(../images/img-sp.png) no-repeat 5px -259px #fff;
+        margin:1em 0;
+}
+.login-form-grids input[type="number"]:nth-child(2){
 	background:url(../images/img-sp.png) no-repeat 0px -298px #fff;
 	margin:1em 0;
 }
