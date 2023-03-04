@@ -1,6 +1,7 @@
 <%
       String EMAIL=(String)session.getAttribute("EMAIL");
       String NAME="";
+      String ID="";
       try
       {
          Class.forName("com.mysql.jdbc.Driver");  
@@ -11,6 +12,7 @@
         java.sql.ResultSet rs=stmt.executeQuery(sele);  
          if(rs.next()) 
             {
+               ID=rs.getString(1);
                NAME=rs.getString(2);
             }
         con.close();  

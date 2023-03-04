@@ -1,5 +1,7 @@
 <%
       String EMAIL=(String)session.getAttribute("EMAIL");
+      String FID=(String)session.getAttribute("FID");
+      session.setAttribute("FID",FID);
       String NAME="";
       try
       {
@@ -152,19 +154,13 @@
                                                         <div class="snipcart-item block" >
                                                             <div class="snipcart-thumb">
                                                                 <a href="products.html"><img title=" " alt=" " src="images/<%=rs.getString(6)%>.jpg" /></a>		
-                                                                <p><%=rs.getString(6)%></p>
-                                                                <div class="stars">
-                                                                    <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                    <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                    <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                    <i class="fa fa-star blue-star" aria-hidden="true"></i>
-                                                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
-                                                                </div>
+                                                                <p><%=rs.getString(6)%></p>                                                               
                                                                 <h4>Rs : <%=rs.getString(7)%>/kg <span>RS : 100/kg</span></h4>
+                                                                <h6 style="padding-top: 5px;" class="text-center">avaliable : <%=rs.getString(9)%>kg </h6>
                                                             </div>
                                                             <div class="snipcart-details top_brand_home_details">
                                                                 <div class="register-home">
-                                                                    <a href="" style="background: #fe9126;">BUY NOW</a>                                                                    
+                                                                    <a href="buynow.jsp?ID=<%=rs.getString(1)%>" style="background: #fe9126;">BUY NOW</a>                                                                    
                                                                 </div>
                                                                 <div class="register-home">                                                                    
                                                                     <a href="" style="background: #fe9126;">ADD TO CART</a>
