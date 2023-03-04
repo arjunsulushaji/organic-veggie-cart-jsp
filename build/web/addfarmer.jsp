@@ -6,7 +6,7 @@
     java.sql.Connection con=java.sql.DriverManager.getConnection( "jdbc:mysql://localhost:3306/organic_veggies","root","");  
     //here sonoo is database name, root is username and password  
     java.sql.Statement stmt=con.createStatement();  
-    String sele="select * from signup";
+    String sele="select * from farmer";
     java.sql.ResultSet rs=stmt.executeQuery(sele);  
     while(rs.next())  
         i++;
@@ -63,13 +63,9 @@
         <div class="agileits_header">
             <div class="container">
                 <div class="w3l_offers">
-<!--                    <p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="products.html">SHOP NOW</a></p>-->
+                    <p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="products.html">SHOP NOW</a></p>
                 </div>
-                <div class="agile-login">
-                    <ul>
-                        <li><a href="logout.jsp">LOGOUT</a></li>
-                    </ul>
-                </div>
+
                 <div class="clearfix"> </div>
             </div>
         </div>
@@ -77,7 +73,7 @@
         <div class="logo_products">
             <div class="container">               
                 <div class="w3ls_logo_products_left">
-                    <h1><a href="index.html">admin panel</a></h1>
+                    <h1><a href="index.html">Organic Veggies</a></h1>
                 </div>
                 <div class="w3l_search">
                     <form action="#" method="post">
@@ -106,8 +102,42 @@
         <!-- register -->
         <div class="register">
             <div class="container">
+                <h2>Add farmer</h2>
+                <div class="login-form-grids">
+                    <form action="addfarmernext.jsp" method="post">
+                        <input type="text" value="FID<%=i%><%=currentTime%>" required=" " name="ID" style="display:none;">
+                        <input type="text" placeholder="Farmer Name" required=" " name="NAME" >
+                        <input type="email" placeholder="Farmer Email Address" required=" " name="EMAIL">
+                        <input type="password" placeholder="Farmer Password" required=" " name="PASSWORD" >
+                        <input type="text" placeholder="Farmer Shop name" required=" " name="SHOPNAME">
+                        <input type="number" placeholder="Farmer Mobilel Number" required="" name="MOBNO">
+                        <input type="text" placeholder="Farmer Address" required="" name="ADDRESS">
+                        <select name="DISTRICT" id="" class="mt-2" required="" style="width: 244px;
+                                height: 38px;
+                                font-family: monospace;
+                                padding-left: 13px;" required="">
+                            <option value="DISTRICT">DISTRICT</option>
+                            <option value="KASARGOD">KASARGOD</option>
+                            <option value="KANNUR">KANNUR</option>
+                            <option value="KOZHIKODE">KOZHIKODE</option>
+                            <option value="MALAPPURAM">MALAPPURAM</option>
+                            <option value="THRISSUR">THRISSUR</option>
+                            <option value="ERNAKALUM">ERNAKALUM</option>
+                            <option value="KOTTAYAM">KOTTAYAM</option>
+                            <option value="ALAPPUZHA">ALAPPUZHA</option>
+                            <option value="KOLLAM">KOLLAM</option>
+                            <option value="THRIVANANTHAPURAM">THRIVANANTHAPURAM</option>
+                            <option value="WAYANAD">WAYANAD</option>
+                            <option value="PALAKKAD">PALAKAD</option>
+                            <option value="IDUKKI">IDUKKI</option>
+                            <option value="PATHANAMTHITTA">PATHANAMTHITTA</option>
+                        </select>
+                      
+                        <input type="submit" value="Register">
+                    </form>
+                </div>
                 <div class="register-home">
-                    <a href="addfarmer.jsp" style="background: #fe9126;">ADD FARMER</a>
+                    <a href="admin.jsp">Home</a>
                 </div>
             </div>
         </div>

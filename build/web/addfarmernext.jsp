@@ -1,26 +1,32 @@
 <%
-      int i=100;
+
+      String ID,NAME,EMAIL,PASSWORD,SHOPNAME,MOBNO,DISTRICT,ADDRESS;
+      ID = request.getParameter("ID");
+      NAME = request.getParameter("NAME");
+      EMAIL = request.getParameter("EMAIL");
+      PASSWORD = request.getParameter("PASSWORD");
+      SHOPNAME = request.getParameter("SHOPNAME");
+      MOBNO = request.getParameter("MOBNO");
+      DISTRICT = request.getParameter("DISTRICT");
+      ADDRESS = request.getParameter("ADDRESS");
+      
       try
       {
       Class.forName("com.mysql.jdbc.Driver");  
     java.sql.Connection con=java.sql.DriverManager.getConnection( "jdbc:mysql://localhost:3306/organic_veggies","root","");  
     //here sonoo is database name, root is username and password  
     java.sql.Statement stmt=con.createStatement();  
-    String sele="select * from signup";
-    java.sql.ResultSet rs=stmt.executeQuery(sele);  
-    while(rs.next())  
-        i++;
+    String ins="insert into farmer(FID,FNAME,FEMAIL,FPASS,FSHOPNAME,FDISTRICT,FPHNO,FADDRESS) values('"+ID+"','"+NAME+"','"+EMAIL+"','"+PASSWORD+"','"+SHOPNAME+"','"+DISTRICT+"','"+MOBNO+"','"+ADDRESS+"')";
+    String inss="insert into login(EMAIL,PASSWORD,USERTYPE) values('"+EMAIL+"','"+PASSWORD+"','farmer')";
+    stmt.executeUpdate(ins);
+    stmt.executeUpdate(inss);
     con.close();  
     }catch(Exception ee)
     {
     out.println("error "+ee);
    }
+      
 %>
-<%
-  long currentTime = System.currentTimeMillis();
-%>
-
-
 
 <!DOCTYPE html>
 <html>
@@ -63,13 +69,9 @@
         <div class="agileits_header">
             <div class="container">
                 <div class="w3l_offers">
-<!--                    <p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="products.html">SHOP NOW</a></p>-->
+                    <p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="products.html">SHOP NOW</a></p>
                 </div>
-                <div class="agile-login">
-                    <ul>
-                        <li><a href="logout.jsp">LOGOUT</a></li>
-                    </ul>
-                </div>
+
                 <div class="clearfix"> </div>
             </div>
         </div>
@@ -77,14 +79,14 @@
         <div class="logo_products">
             <div class="container">               
                 <div class="w3ls_logo_products_left">
-                    <h1><a href="index.html">admin panel</a></h1>
+                    <h1><a href="index.html">Organic Veggies</a></h1>
                 </div>
                 <div class="w3l_search">
                     <form action="#" method="post">
-                        <input type="search" name="Search" placeholder="Search for a Product..." required="">
-                        <button type="submit" class="btn btn-default search" aria-label="Left Align">
-                            <i class="fa fa-search" aria-hidden="true"> </i>
-                        </button>
+                        <!--                        <input type="search" name="Search" placeholder="Search for a Product..." required="">-->
+                        <!--                        <button type="submit" class="btn btn-default search" aria-label="Left Align">
+                                                    <i class="fa fa-search" aria-hidden="true"> </i>
+                                                </button>-->
                         <div class="clearfix"></div>
                     </form>
                 </div>
@@ -106,8 +108,9 @@
         <!-- register -->
         <div class="register">
             <div class="container">
+                <h2 style="margin-top: 4rem;">Farmer added Successfull</h2>            
                 <div class="register-home">
-                    <a href="addfarmer.jsp" style="background: #fe9126;">ADD FARMER</a>
+                    <a href="admin.jsp">Home</a>
                 </div>
             </div>
         </div>

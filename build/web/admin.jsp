@@ -107,7 +107,7 @@
         <div class="register">
             <div class="container">
                 <div class="register-home">
-                    <a href="" style="background: #fe9126;">ADD FARMER</a>
+                    <a href="addfarmer.jsp" style="background: #fe9126;">ADD FARMER</a>
                 </div>
             </div>
         </div>
