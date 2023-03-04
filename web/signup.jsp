@@ -94,6 +94,10 @@
             <div class="container">
                 <nav class="navbar navbar-default">
                     <!-- Brand and toggle get grouped for better mobile display -->
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.jsp" class="act">Home</a></li>	
+                        <!-- Mega Menu -->                            
+                    </ul>
                 </nav>
             </div>
         </div>

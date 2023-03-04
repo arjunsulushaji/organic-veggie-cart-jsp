@@ -1,23 +1,26 @@
+
 <%
-      int i=100;
+      String EMAIL=(String)session.getAttribute("EMAIL");
+      String NAME="";
+      String ID="";
       try
       {
-      Class.forName("com.mysql.jdbc.Driver");  
-    java.sql.Connection con=java.sql.DriverManager.getConnection( "jdbc:mysql://localhost:3306/organic_veggies","root","");  
-    //here sonoo is database name, root is username and password  
-    java.sql.Statement stmt=con.createStatement();  
-    String sele="select * from signup";
-    java.sql.ResultSet rs=stmt.executeQuery(sele);  
-    while(rs.next())  
-        i++;
-    con.close();  
-    }catch(Exception ee)
-    {
-    out.println("error "+ee);
-   }
-%>
-<%
-  long currentTime = System.currentTimeMillis();
+         Class.forName("com.mysql.jdbc.Driver");  
+        java.sql.Connection con=java.sql.DriverManager.getConnection( "jdbc:mysql://localhost:3306/organic_veggies","root","");  
+        java.sql.Statement stmt=con.createStatement();  
+        String sele="SELECT *FROM farmer where FEMAIL='"+EMAIL+"' ";
+//        out.println(sele);
+        java.sql.ResultSet rs=stmt.executeQuery(sele);  
+         if(rs.next()) 
+            {
+               ID=rs.getString(1);
+               NAME=rs.getString(2);
+            }
+        con.close();  
+        }catch(Exception ee)
+            {
+                out.println("error "+ee);    
+            }
 %>
 
 
@@ -67,6 +70,7 @@
                 </div>
                 <div class="agile-login">
                     <ul>
+                        <li><a href=""> WELCOME  <%=NAME%> </a></li>
                         <li><a href="logout.jsp">LOGOUT</a></li>
                     </ul>
                 </div>
@@ -77,7 +81,7 @@
         <div class="logo_products">
             <div class="container">               
                 <div class="w3ls_logo_products_left">
-                    <h1><a href="index.html">admin panel</a></h1>
+                    <h1><a href="index.html">farmer panel</a></h1>
                 </div>
                 <div class="w3l_search">
                     <form action="#" method="post">
@@ -99,7 +103,7 @@
                 <nav class="navbar navbar-default">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="" class="act">All Framers</a></li>	
+                       
                         <!-- Mega Menu -->                           
                     </ul>
                 </nav>
@@ -111,15 +115,72 @@
         <div class="register">
             <div class="container">
                 <div class="register-home">
-                    <a href="addfarmer.jsp" style="background: #fe9126;">ADD FARMER</a>
+                    <a href="addvegitables.jsp" style="background: #fe9126;">ADD VEGITABLES</a>
                 </div>
                 <div class="register-home">
                     <p class="text-center">
                         <a class="" style="background: #fe9126;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            ADDED FARMERS
+                            ADDED VEGITABLES
                         </a>
                     </p>
                     <div class="collapse mt-3" id="collapseExample">
+                        <div class="card card-body">
+                            <table class="table" style="margin-top: 25px;">
+                                <thead class="thead-dark bg-success">
+                                    <tr>
+                                        <th scope="col">NAME</th>
+                                        <th scope="col">PRICE</th>
+                                        <th scope="col">TOTAL QUANTITY</th>
+                                        <th scope="col">AVALIABLE QUANTITY</th>
+                                        <th scope="col">TIME</th>
+                                        <th scope="col">DATE</th>  
+                                        <th scope="col">STATUS</th> 
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%
+                                try
+                                {
+                                Class.forName("com.mysql.jdbc.Driver");  
+                              java.sql.Connection con=java.sql.DriverManager.getConnection( "jdbc:mysql://localhost:3306/organic_veggies","root","");  
+                              java.sql.Statement stmt=con.createStatement();  
+                             String sele="SELECT *FROM vegitable where FID='"+ID+"' ";
+                               java.sql.ResultSet rs=stmt.executeQuery(sele);  
+                              while(rs.next()) 
+                              {
+    
+                                    %>
+                                    <tr>
+                                        <th scope="row"><%=rs.getString(6)%></th>
+                                        <th scope="row">RS : <%=rs.getString(7)%>/KG</th>
+                                        <th scope="row"><%=rs.getString(8)%> KG</th>
+                                        <th scope="row"><%=rs.getString(9)%> KG</th>
+                                        <th scope="row"><%=rs.getString(11)%></th>   
+                                        <th scope="row"><%=rs.getString(10)%></th> 
+                                        <th scope="row"><%=rs.getString(12)%></th> 
+                                    </tr>
+                                    <%
+                                              }
+                                        con.close();  
+                                        }catch(Exception ee)
+                                        {
+                                        out.println("error "+ee);
+                                    }                                         
+                                                
+                                    %>
+                                </tbody>
+                            </table>                           
+                        </div>
+                    </div>
+                </div>
+                 
+                <div class="register-home">
+                    <p class="text-center">
+                        <a class="" style="background: #fe9126;" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            BOOKED VEGITABLES
+                        </a>
+                    </p>
+                    <div class="collapse mt-3" id="collapseExample1">
                         <div class="card card-body">
                             <table class="table" style="margin-top: 25px;">
                                 <thead class="thead-dark bg-success">

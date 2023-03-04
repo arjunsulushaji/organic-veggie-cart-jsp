@@ -47,7 +47,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="w3l_offers">
                     <p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="products.html">SHOP NOW</a></p>
                 </div>
-               
+
                 <div class="clearfix"> </div>
             </div>
         </div>
@@ -76,6 +76,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="container">
                 <nav class="navbar navbar-default">
                     <!-- Brand and toggle get grouped for better mobile display -->
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.jsp" class="act">Home</a></li>	
+                        <!-- Mega Menu -->                            
+                    </ul>
                 </nav>
             </div>
         </div>
@@ -103,26 +107,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
         <!-- //login -->
         <!-- //footer -->
-       	
+
         <!-- //footer -->	
         <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>
         <!-- top-header and slider -->
         <!-- here stars scrolling icon -->
         <script type="text/javascript">
-    $(document).ready(function () {
-        /*
-         var defaults = {
-         containerID: 'toTop', // fading element id
-         containerHoverID: 'toTopHover', // fading element hover id
-         scrollSpeed: 1200,
-         easingType: 'linear' 
-         };
-         */
+            $(document).ready(function () {
+                /*
+                 var defaults = {
+                 containerID: 'toTop', // fading element id
+                 containerHoverID: 'toTopHover', // fading element hover id
+                 scrollSpeed: 1200,
+                 easingType: 'linear' 
+                 };
+                 */
 
-        $().UItoTop({easingType: 'easeOutQuart'});
+                $().UItoTop({easingType: 'easeOutQuart'});
 
-    });
+            });
         </script>
         <!-- //here ends scrolling icon -->
         <script src="js/minicart.min.js"></script>

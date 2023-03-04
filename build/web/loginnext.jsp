@@ -26,10 +26,10 @@
         response.sendRedirect("admin.jsp");
          }
       else
-        if(usertype.equals("distributor"))
+        if(usertype.equals("farmer"))
         {
         session.setAttribute("EMAIL",EMAIL);
-        response.sendRedirect("agent.jsp");
+        response.sendRedirect("farmer.jsp");
         }
     }
       else

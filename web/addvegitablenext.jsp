@@ -1,13 +1,72 @@
-<!--
-author: W3layouts
-author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<%@page import="java.text.SimpleDateFormat" %>
+<%@page import="java.util.Date" %>
+<%  
+Date d= new Date();
+SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
+String date=DATE_FORMAT.format(d);
+%>
+<%  
+Date t= new Date();
+SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("hh:mm:ss");
+String time=TIME_FORMAT.format(t);
+%>
+
+<%
+      String EMAIL=(String)session.getAttribute("EMAIL");
+      String FID="";
+      String FDISTRICT="";
+      String FNAME="";
+      String SHOPNAME="";
+      
+      try
+      {
+         Class.forName("com.mysql.jdbc.Driver");  
+        java.sql.Connection con=java.sql.DriverManager.getConnection( "jdbc:mysql://localhost:3306/organic_veggies","root","");  
+        java.sql.Statement stmt=con.createStatement();  
+        String sele="SELECT *FROM farmer where FEMAIL='"+EMAIL+"' ";
+//        out.println(sele);
+        java.sql.ResultSet rs=stmt.executeQuery(sele);  
+         if(rs.next()) 
+            {
+               FID=rs.getString(1);
+               FNAME=rs.getString(2);
+               SHOPNAME=rs.getString(5);
+               FDISTRICT=rs.getString(6);
+            }
+        con.close();  
+        }catch(Exception ee)
+            {
+                out.println("error "+ee);    
+            }
+%>
+
+<%
+
+      String ID,VEGITABLE,AMOUNT,QUANTITY;
+      ID = request.getParameter("ID");
+      VEGITABLE = request.getParameter("VEGITABLE");
+      AMOUNT = request.getParameter("AMOUNT");
+      QUANTITY = request.getParameter("QUANTITY");
+      try
+      {
+      Class.forName("com.mysql.jdbc.Driver");  
+    java.sql.Connection con=java.sql.DriverManager.getConnection( "jdbc:mysql://localhost:3306/organic_veggies","root","");  
+    //here sonoo is database name, root is username and password  
+    java.sql.Statement stmt=con.createStatement();  
+    String ins="insert into vegitable(VID,FID,FNAME,FDISTRICT,SHOPNAME,VNAME,VAMOUNT,VQUANTITY,AQUANTITY,DATE,TIME,STATUS) values('"+ID+"','"+FID+"','"+FNAME+"','"+FDISTRICT+"','"+SHOPNAME+"','"+VEGITABLE+"','"+AMOUNT+"','"+QUANTITY+"','"+QUANTITY+"','"+date+"','"+time+"','AVALIABLE')";
+    stmt.executeUpdate(ins);
+    con.close();  
+    }catch(Exception ee)
+    {
+    out.println("error "+ee);
+   }
+      
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Super Market an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Login :: w3layouts</title>
+        <title>Super Market an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Registered :: w3layouts</title>
         <!-- for-mobile-apps -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -53,16 +112,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
 
         <div class="logo_products">
-            <div class="container">
+            <div class="container">               
                 <div class="w3ls_logo_products_left">
-                    <h1><a href="index.html">super Market</a></h1>
+                    <h1><a href="index.html">Organic Veggies</a></h1>
                 </div>
                 <div class="w3l_search">
                     <form action="#" method="post">
-                        <input type="search" name="Search" placeholder="Search for a Product..." required="">
-                        <button type="submit" class="btn btn-default search" aria-label="Left Align">
-                            <i class="fa fa-search" aria-hidden="true"> </i>
-                        </button>
+                        <!--                        <input type="search" name="Search" placeholder="Search for a Product..." required="">-->
+                        <!--                        <button type="submit" class="btn btn-default search" aria-label="Left Align">
+                                                    <i class="fa fa-search" aria-hidden="true"> </i>
+                                                </button>-->
                         <div class="clearfix"></div>
                     </form>
                 </div>
@@ -76,39 +135,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="container">
                 <nav class="navbar navbar-default">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.jsp" class="act">Home</a></li>	
-                        <!-- Mega Menu -->                            
-                    </ul>
                 </nav>
             </div>
         </div>
 
         <!-- //navigation -->
-
-        <!-- login -->
-        <div class="login">
+        <!-- register -->
+        <div class="register">
             <div class="container">
-                <h2>Login Form</h2>
-
-                <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
-                    <form action="loginnext.jsp" method="post">
-                        <input type="email" placeholder="Email Address" required=" " name="EMAIL">
-                        <input type="password" placeholder="Password" required=" " name="PASSWORD">
-                        <div class="forgot">
-                            <a href="#">Forgot Password?</a>
-                        </div>
-                        <input type="submit" value="Login">
-                    </form>
+                <h2 style="margin-top: 4rem;">Vegitable added Successfull</h2>            
+                <div class="register-home">
+                    <a href="farmer.jsp">Home</a>
                 </div>
-                <h4>For New People</h4>
-                <p><a href="signup.jsp">Register Here</a> (Or) go back to <a href="index.jsp">Home<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
             </div>
         </div>
-        <!-- //login -->
-        <!-- //footer -->
-
-        <!-- //footer -->	
+        <!-- //register -->	
         <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>
         <!-- top-header and slider -->

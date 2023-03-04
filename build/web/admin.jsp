@@ -63,7 +63,7 @@
         <div class="agileits_header">
             <div class="container">
                 <div class="w3l_offers">
-<!--                    <p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="products.html">SHOP NOW</a></p>-->
+                    <!--                    <p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="products.html">SHOP NOW</a></p>-->
                 </div>
                 <div class="agile-login">
                     <ul>
@@ -98,6 +98,10 @@
             <div class="container">
                 <nav class="navbar navbar-default">
                     <!-- Brand and toggle get grouped for better mobile display -->
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="" class="act">All Framers</a></li>	
+                        <!-- Mega Menu -->                           
+                    </ul>
                 </nav>
             </div>
         </div>
@@ -108,6 +112,60 @@
             <div class="container">
                 <div class="register-home">
                     <a href="addfarmer.jsp" style="background: #fe9126;">ADD FARMER</a>
+                </div>
+                <div class="register-home">
+                    <p class="text-center">
+                        <a class="" style="background: #fe9126;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            ADDED FARMERS
+                        </a>
+                    </p>
+                    <div class="collapse mt-3" id="collapseExample">
+                        <div class="card card-body">
+                            <table class="table" style="margin-top: 25px;">
+                                <thead class="thead-dark bg-success">
+                                    <tr>
+                                        <th scope="col">NAME</th>
+                                        <th scope="col">EMAIL</th>
+                                        <th scope="col">SHOP NAME</th>
+                                        <th scope="col">DISTRCIT</th>
+                                        <th scope="col">MOBNO</th>
+                                        <th scope="col">ADDRESS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%
+                                try
+                                {
+                                Class.forName("com.mysql.jdbc.Driver");  
+                              java.sql.Connection con=java.sql.DriverManager.getConnection( "jdbc:mysql://localhost:3306/organic_veggies","root","");  
+                              java.sql.Statement stmt=con.createStatement();  
+                             String sele="SELECT *FROM farmer ";
+                               java.sql.ResultSet rs=stmt.executeQuery(sele);  
+                              while(rs.next()) 
+                              {
+    
+                                    %>
+                                    <tr>
+                                        <th scope="row"><%=rs.getString(2)%></th>
+                                        <th scope="row"><%=rs.getString(3)%></th>
+                                        <th scope="row"><%=rs.getString(5)%></th>
+                                        <th scope="row"><%=rs.getString(6)%></th>
+                                        <th scope="row"><%=rs.getString(7)%></th>
+                                        <th scope="row"><%=rs.getString(8)%></th>
+                                    </tr>
+                                    <%
+                                              }
+                                        con.close();  
+                                        }catch(Exception ee)
+                                        {
+                                        out.println("error "+ee);
+                                    }                                         
+                                                
+                                    %>
+                                </tbody>
+                            </table>                           
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

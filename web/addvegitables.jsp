@@ -1,13 +1,31 @@
-<!--
-author: W3layouts
-author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<%
+      int i=100;
+      try
+      {
+      Class.forName("com.mysql.jdbc.Driver");  
+    java.sql.Connection con=java.sql.DriverManager.getConnection( "jdbc:mysql://localhost:3306/organic_veggies","root","");  
+    //here sonoo is database name, root is username and password  
+    java.sql.Statement stmt=con.createStatement();  
+    String sele="select * from vegitable";
+    java.sql.ResultSet rs=stmt.executeQuery(sele);  
+    while(rs.next())  
+        i++;
+    con.close();  
+    }catch(Exception ee)
+    {
+    out.println("error "+ee);
+   }
+%>
+<%
+  long currentTime = System.currentTimeMillis();
+%>
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Super Market an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Login :: w3layouts</title>
+        <title>Super Market an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Registered :: w3layouts</title>
         <!-- for-mobile-apps -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -45,7 +63,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="agileits_header">
             <div class="container">
                 <div class="w3l_offers">
-                    <p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="products.html">SHOP NOW</a></p>
+                    
                 </div>
 
                 <div class="clearfix"> </div>
@@ -53,9 +71,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
 
         <div class="logo_products">
-            <div class="container">
+            <div class="container">               
                 <div class="w3ls_logo_products_left">
-                    <h1><a href="index.html">super Market</a></h1>
+                    <h1><a href="index.html">Organic Veggies</a></h1>
                 </div>
                 <div class="w3l_search">
                     <form action="#" method="post">
@@ -76,39 +94,39 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="container">
                 <nav class="navbar navbar-default">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.jsp" class="act">Home</a></li>	
-                        <!-- Mega Menu -->                            
-                    </ul>
                 </nav>
             </div>
         </div>
 
         <!-- //navigation -->
-
-        <!-- login -->
-        <div class="login">
+        <!-- register -->
+        <div class="register">
             <div class="container">
-                <h2>Login Form</h2>
+                <h2>Add Vegitable</h2>
+                <div class="login-form-grids">
+                    <form action="addvegitablenext.jsp" method="post">
+                        <input type="text" value="VID<%=i%><%=currentTime%>" required="" name="ID" style="display:none;">
 
-                <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
-                    <form action="loginnext.jsp" method="post">
-                        <input type="email" placeholder="Email Address" required=" " name="EMAIL">
-                        <input type="password" placeholder="Password" required=" " name="PASSWORD">
-                        <div class="forgot">
-                            <a href="#">Forgot Password?</a>
-                        </div>
-                        <input type="submit" value="Login">
+                        <select name="VEGITABLE" id="" class="mt-2" required="" style="width: 244px;
+                                height: 38px;
+                                font-family: monospace;
+                                padding-left: 13px;" required="">
+                            <option value="">SELECT VEGITABLE</option>
+                            <option value="TOMATO">TOMATO</option>
+                            <option value="CARROT">CARROT</option>
+                        <option value="CHILLI">CHILLI</option>                            
+                        </select>
+                        <input type="number" placeholder="Enter Amount" required=" " name="AMOUNT" >
+                        <input type="number" placeholder="Enter Quantity" required=" " name="QUANTITY">                                               
+                        <input type="submit" value="Submit">
                     </form>
                 </div>
-                <h4>For New People</h4>
-                <p><a href="signup.jsp">Register Here</a> (Or) go back to <a href="index.jsp">Home<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
+                <div class="register-home">
+                    <a href="farmer.jsp">Home</a>
+                </div>
             </div>
         </div>
-        <!-- //login -->
-        <!-- //footer -->
-
-        <!-- //footer -->	
+        <!-- //register -->	
         <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>
         <!-- top-header and slider -->
