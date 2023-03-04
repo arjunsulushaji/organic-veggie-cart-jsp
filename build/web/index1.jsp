@@ -180,7 +180,7 @@
                                                             </div>
                                                             <div class="snipcart-details top_brand_home_details">
                                                                 <div class="register-home">
-                                                                    <a href="" style="background: #fe9126;">SHOP NOW</a>
+                                                                    <a href="shopnow.jsp?ID=<%=rs.getString(1)%>" style="background: #fe9126;">SHOP NOW</a>
                                                                 </div>
                                                             </div>
                                                         </div>

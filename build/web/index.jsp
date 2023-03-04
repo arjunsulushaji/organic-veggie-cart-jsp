@@ -145,7 +145,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                                             </div>
                                                             <div class="snipcart-details top_brand_home_details">
                                                                 <div class="register-home">
-                                                                    <a href="" style="background: #fe9126;">SHOP NOW</a>
+                                                                    <a href="login.jsp" style="background: #fe9126;">SHOP NOW</a>
                                                                 </div>
                                                             </div>
                                                         </div>

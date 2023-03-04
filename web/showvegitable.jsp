@@ -1,9 +1,24 @@
-<!--
-author: W3layouts
-author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<%
+      String EMAIL=(String)session.getAttribute("EMAIL");
+      String NAME="";
+      try
+      {
+         Class.forName("com.mysql.jdbc.Driver");  
+        java.sql.Connection con=java.sql.DriverManager.getConnection( "jdbc:mysql://localhost:3306/organic_veggies","root","");  
+        java.sql.Statement stmt=con.createStatement();  
+        String sele="SELECT *FROM signup where EMAIL='"+EMAIL+"' ";
+//        out.println(sele);
+        java.sql.ResultSet rs=stmt.executeQuery(sele);  
+         if(rs.next()) 
+            {
+               NAME=rs.getString(2);
+            }
+        con.close();  
+        }catch(Exception ee)
+            {
+                out.println("error "+ee);    
+            }
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -45,12 +60,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="agileits_header">
             <div class="container">
                 <div class="w3l_offers">
-                    <p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="index.jsp">SHOP NOW</a></p>
+                    <p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="products.html">SHOP NOW</a></p>
                 </div>
                 <div class="agile-login">
                     <ul>
-                        <li><a href="signup.jsp"> CREATE ACCOUNT </a></li>
-                        <li><a href="login.jsp">LOGIN</a></li>
+                        <li><a href=""> WELCOME  <%=NAME%> </a></li>
+                        <li><a href="logout.jsp">LOGOUT</a></li>
 
                     </ul>
                 </div>
@@ -93,8 +108,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div> 
                     <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="index.jsp" class="act">Home</a></li>	
-                            <!-- Mega Menu -->                            
+                            <li class="active"><a href="index1.jsp" class="act">Home</a></li>                            
+                            </li>                                                       
                         </ul>
                     </div>
                 </nav>
@@ -104,22 +119,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!-- //navigation -->
         <!-- //top-header and slider -->
         <!-- top-brands -->
-        <div class="top-brands">
+        <div class="top-brands" style="padding: 0em;">
             <div class="container">
-                <h2>Top selling shops</h2>
                 <div class="grid_3 grid_5">
                     <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
                         <div id="myTabContent" class="tab-content">
                             <div role="tabpanel" class="tab-pane fade in active" id="expeditions" aria-labelledby="expeditions-tab"> 
 
                                 <div class="agile_top_brands_grids">
+
                                     <%
+                                String ID=(String)session.getAttribute("ID");
                                 try
                                 {
                                 Class.forName("com.mysql.jdbc.Driver");  
                               java.sql.Connection con=java.sql.DriverManager.getConnection( "jdbc:mysql://localhost:3306/organic_veggies","root","");  
                               java.sql.Statement stmt=con.createStatement();  
-                             String sele="SELECT *FROM farmer ";
+                             String sele="SELECT *FROM vegitable where FID='"+ID+"' ";
                                java.sql.ResultSet rs=stmt.executeQuery(sele);  
                               while(rs.next()) 
                               {
@@ -127,13 +143,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     %>
                                     <div class="col-md-4 top_brand_left">
                                         <div class="hover14 column">
-                                            <div class="agile_top_brand_left_grid">                                                
+                                            <div class="agile_top_brand_left_grid">
+                                                <div class="agile_top_brand_left_grid_pos">
+                                                    <img src="images/offer.png" alt=" " class="img-responsive" />
+                                                </div>
                                                 <div class="agile_top_brand_left_grid1">
                                                     <figure>
                                                         <div class="snipcart-item block" >
                                                             <div class="snipcart-thumb">
-                                                                <a href="products.html"><img title=" " alt=" " src="images/shop.png" /></a>		
-                                                                <p><%=rs.getString(5)%></p>
+                                                                <a href="products.html"><img title=" " alt=" " src="images/<%=rs.getString(6)%>.jpg" /></a>		
+                                                                <p><%=rs.getString(6)%></p>
                                                                 <div class="stars">
                                                                     <i class="fa fa-star blue-star" aria-hidden="true"></i>
                                                                     <i class="fa fa-star blue-star" aria-hidden="true"></i>
@@ -141,11 +160,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                                                     <i class="fa fa-star blue-star" aria-hidden="true"></i>
                                                                     <i class="fa fa-star gray-star" aria-hidden="true"></i>
                                                                 </div>
-                                                                <p>location : <span><%=rs.getString(6)%></span></p>
+                                                                <h4>Rs : <%=rs.getString(7)%>/kg <span>RS : 100/kg</span></h4>
                                                             </div>
                                                             <div class="snipcart-details top_brand_home_details">
                                                                 <div class="register-home">
-                                                                    <a href="login.jsp" style="background: #fe9126;">SHOP NOW</a>
+                                                                    <a href="" style="background: #fe9126;">BUY NOW</a>                                                                    
+                                                                </div>
+                                                                <div class="register-home">                                                                    
+                                                                    <a href="" style="background: #fe9126;">ADD TO CART</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -153,16 +175,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>         
-                                      <%
-                                              }
-                                        con.close();  
-                                        }catch(Exception ee)
-                                        {
-                                        out.println("error "+ee);
-                                    }                                         
+                                    </div>
+                                    <%
+                                            }
+                                      con.close();  
+                                      }catch(Exception ee)
+                                      {
+                                      out.println("error "+ee);
+                                  }                                         
                                                 
                                     %>
+
                                     <div class="clearfix"> </div>
                                 </div>
 
