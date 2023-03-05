@@ -133,12 +133,15 @@
             <div class="container">
                 <h2>add to cart</h2>
                 <div class="login-form-grids">
-                    <form action="addtocartnext.jsp" method="post">                                               
+                    <form action="addtocartnext.jsp" method="post" id="addtocart">                                               
                         <div style="padding-top: 15px;">
                             <p>NAME : <%=NAME%></p>
                             <p>PRICE : <%=AMOUNT%>/kg</p>                            
                         </div>
-                        <input type="number" placeholder="Enter required quatity in kilo grams" required="" name="RQ">
+                        <input type="number" id="rq" placeholder="Enter required quatity in kilo grams" required="" name="RQ">
+                        <div style="padding-bottom: 5px;">
+                            <p style="color: red; display: none;" id="error">* Please enter maximum 3 kg</hp>
+                        </div>
                         <input type="text" value="CID<%=UMOB%>" readonly="" required="" name="CARTID" style="display:none;">
                         <input type="text" value="<%=NAME%>" readonly="" required="" name="NAME" style="display:none;">
                         <input type="number" value="<%=AMOUNT%>" readonly=""  required=" " name="AMOUNT"style="display:none;">      
@@ -197,6 +200,24 @@
             });
         </script>	
         <!-- //main slider-banner --> 
+        <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+        crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(() => {
+                $("#addtocart").submit(function (e) {
+                    var digit = $('#rq').val();
+                    var number = parseInt(digit);
+                    if (number > 3) {
+                        $("#error").show();
+                        e.preventDefault();
+                    } else {
+                        $("#error").hide();
+                        e.currentTarget.submit();
+                    }
+                });
+            });
+        </script>
 
     </body>
 </html>

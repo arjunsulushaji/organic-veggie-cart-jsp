@@ -67,6 +67,7 @@
                 </div>
                 <div class="agile-login">
                     <ul>
+                        <li><a href="">ADMIN PANEL</a></li>
                         <li><a href="logout.jsp">LOGOUT</a></li>
                     </ul>
                 </div>
@@ -99,7 +100,7 @@
                 <nav class="navbar navbar-default">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="" class="act">All Framers</a></li>	
+<!--                        <li class="active"><a href="" class="act">All Framers</a></li>	-->
                         <!-- Mega Menu -->                           
                     </ul>
                 </nav>

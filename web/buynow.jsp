@@ -130,13 +130,16 @@
             <div class="container">
                 <h2>Buy vegitables</h2>
                 <div class="login-form-grids">
-                    <form action="buynownext.jsp" method="post">                                               
+                    <form action="buynownext.jsp" method="post" id="buy-now">                                               
                         <div style="padding-top: 15px;">
                             <p>NAME : <%=NAME%></p>
                             <p>PRICE : <%=AMOUNT%>/kg</p>                           
                         </div>
-                        <input type="number" placeholder="Enter required quatity in kilo grams" required="" name="RQ">
-                        <select name="PAYMENT" id="" class="mt-2" required="" style="width: 244px;
+                        <input type="number" id="rq" placeholder="Enter required quatity in kilo grams" required="" name="RQ">
+                        <div style="padding-bottom: 5px;">
+                            <p style="color: red; display: none;" id="error">* Please enter maximum 3 kg</hp>
+                        </div>
+                        <select name="PAYMENT" id="" class="mt-3" required="" style="width: 244px;
                                 height: 38px;
                                 font-family: monospace;
                                 padding-left: 13px;" required="">
@@ -151,7 +154,7 @@
                     </form>
                 </div>
                 <div class="register-home">
-                    
+
                 </div>
             </div>
         </div>
@@ -199,7 +202,26 @@
                 });
 
             });
-        </script>	
+        </script>
+
+        <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+        crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(() => {
+                $("#buy-now").submit(function (e) {
+                    var digit = $('#rq').val();
+                    var number = parseInt(digit);
+                    if (number > 3) {
+                        $("#error").show();
+                        e.preventDefault();
+                    } else {
+                        $("#error").hide();
+                        e.currentTarget.submit();
+                    }
+                });
+            });
+        </script>
         <!-- //main slider-banner --> 
 
     </body>

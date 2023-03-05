@@ -102,7 +102,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </thead>
                     <tbody>
                         <%
-                    String ID = request.getParameter("ID");
+                    String ID=(String)session.getAttribute("ID");
                     int fulltotal = 0;
                     try
                     {
