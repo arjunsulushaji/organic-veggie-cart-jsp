@@ -144,7 +144,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div>
                     <h3 class="text-center">Total : Rs <%=fulltotal%></h3>
                     <div class="register-home text-right">
-                        <a href="" style="background: #fe9126;">BUY NOW</a>
+                        <a href="cartpayment.jsp?USERID=<%=ID%>" style="background: #fe9126;">BUY NOW</a>
                     </div>
                 </div>
             </div>

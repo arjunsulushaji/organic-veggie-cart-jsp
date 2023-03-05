@@ -109,7 +109,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     Class.forName("com.mysql.jdbc.Driver");  
                   java.sql.Connection con=java.sql.DriverManager.getConnection( "jdbc:mysql://localhost:3306/organic_veggies","root","");  
                   java.sql.Statement stmt=con.createStatement();  
-                 String sele="SELECT *FROM orders where UID='"+ID+"' ";
+                 String sele="SELECT *FROM orders where UID='"+ID+"' and ORDERSTATUS='true' ";
                    java.sql.ResultSet rs=stmt.executeQuery(sele);  
                   while(rs.next()) 
                   {

@@ -17,13 +17,7 @@ String time=TIME_FORMAT.format(t);
       String FID=(String)session.getAttribute("FID");
       String OID = request.getParameter("OID");
       String VEGITABLENAME = request.getParameter("NAME");
-      String AQ = request.getParameter("QUANTITY");
       String RQ = request.getParameter("RQ");
-      
-      
-      int A=Integer.parseInt(request.getParameter("QUANTITY"));
-      int B=Integer.parseInt(request.getParameter("RQ"));
-      int C = A-B;
       
 %>
 
@@ -78,9 +72,7 @@ String time=TIME_FORMAT.format(t);
     //here sonoo is database name, root is username and password  
     java.sql.Statement stmt=con.createStatement();  
     String ins="insert into orders(ORDERID,FID,FNAME,SHOPNAME,VID,UID,VNAME,UNAME,QUANTITY,DATE,TIME,STATUS,ORDERSTATUS) values('"+OID+"','"+FID+"','"+FARMERNAME+"','"+SHOPNAME+"','"+VID+"','"+USERID+"','"+VEGITABLENAME+"','"+USERNAME+"','"+RQ+"','"+date+"','"+time+"','order placed','true')";
-    String ss="update vegitable set AQUANTITY='"+C+"' where VID='"+VID+"' ";
     stmt.executeUpdate(ins);
-    stmt.executeUpdate(ss);
     con.close();  
     }catch(Exception ee)
     {

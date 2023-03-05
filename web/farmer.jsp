@@ -103,7 +103,7 @@
                 <nav class="navbar navbar-default">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <ul class="nav navbar-nav">
-                       
+
                         <!-- Mega Menu -->                           
                     </ul>
                 </nav>
@@ -129,15 +129,16 @@
                                 <thead class="thead-dark bg-success">
                                     <tr>
                                         <th scope="col">NAME</th>
-                                        <th scope="col">PRICE</th>
-                                        <th scope="col">TOTAL QUANTITY</th>
-                                        <th scope="col">AVALIABLE QUANTITY</th>
+                                        <th scope="col">PRICE</th>                                                                               
                                         <th scope="col">TIME</th>
-                                        <th scope="col">DATE</th>                                         
+                                        <th scope="col">DATE</th> 
+                                        <th scope="col">STATUS</th> 
+                                        <th scope="col">AVALIABLE</th>
+                                        <th scope="col">OUT OF STOCK</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <%
+                                    <%                                   
                                 try
                                 {
                                 Class.forName("com.mysql.jdbc.Driver");  
@@ -152,10 +153,14 @@
                                     <tr>
                                         <th scope="row"><%=rs.getString(6)%></th>
                                         <th scope="row">RS : <%=rs.getString(7)%>/KG</th>
-                                        <th scope="row"><%=rs.getString(8)%> KG</th>
-                                        <th scope="row"><%=rs.getString(9)%> KG</th>
-                                        <th scope="row"><%=rs.getString(11)%></th>   
-                                        <th scope="row"><%=rs.getString(10)%></th>                                          
+                                        <th scope="row"><%=rs.getString(8)%></th>
+                                        <th scope="row"><%=rs.getString(9)%></th>
+                                        <th scope="row"><%=rs.getString(10)%></th>
+                                            <%
+                                                String vid = rs.getString(1);
+                                            %>
+                                        <th scope="row"><a style="background: limegreen;" href="changestatus.jsp?STATUS=AVALIABLE&VID=<%=vid%> ">AVALIABLE</a></th>
+                                        <th scope="row"><a style="background: red;" href="changestatus.jsp?STATUS=OUTOFSTOCK&VID=<%=vid%> ">OUT OF STOCK</a></th>
                                     </tr>
                                     <%
                                               }
@@ -171,7 +176,7 @@
                         </div>
                     </div>
                 </div>
-                 
+
                 <div class="register-home">
                     <p class="text-center">
                         <a class="" style="background: #fe9126;" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -198,7 +203,7 @@
                                 Class.forName("com.mysql.jdbc.Driver");  
                               java.sql.Connection con=java.sql.DriverManager.getConnection( "jdbc:mysql://localhost:3306/organic_veggies","root","");  
                               java.sql.Statement stmt=con.createStatement();  
-                             String sele="SELECT *FROM orders where FID='"+ID+"'  ";
+                             String sele="SELECT *FROM orders where FID='"+ID+"' and ORDERSTATUS='true' ";
                                java.sql.ResultSet rs=stmt.executeQuery(sele);  
                               while(rs.next()) 
                               {

@@ -132,7 +132,7 @@
 
                                     <%
                                 String ID=(String)session.getAttribute("ID");
-                                String QUANTITY="";                                
+                                String STATUS="";                                
                                 try
                                 {
                                 Class.forName("com.mysql.jdbc.Driver");  
@@ -141,9 +141,7 @@
                              String sele="SELECT *FROM vegitable where FID='"+ID+"' ";
                                java.sql.ResultSet rs=stmt.executeQuery(sele);  
                               while(rs.next()) 
-                              {
-                                    QUANTITY = rs.getString(9);
-                                    int Q = Integer.parseInt(QUANTITY.trim());                                    
+                              {                                                                                                         
                                     %>
                                     <div class="col-md-4 top_brand_left">
                                         <div class="hover14 column">
@@ -157,12 +155,13 @@
                                                             <div class="snipcart-thumb">
                                                                 <a href="products.html"><img title=" " alt=" " src="images/<%=rs.getString(6)%>.jpg" /></a>		
                                                                 <p><%=rs.getString(6)%></p>                                                               
-                                                                <h4>Rs : <%=rs.getString(7)%>/kg <span>RS : 100/kg</span></h4>
-                                                                <h6 style="padding-top: 5px;" class="text-center">avaliable : <%=rs.getString(9)%>kg </h6>
+                                                                <h4>Rs : <%=rs.getString(7)%>/kg <span>RS : 100/kg</span></h4>                                                                
                                                             </div>
-                                                            <div class="snipcart-details top_brand_home_details">                                                               
+                                                            <div class="snipcart-details top_brand_home_details"> 
                                                                 <%
-                                                                    if(Q > 0)
+                                                                    String STATUSS = "";
+                                                                    STATUSS = rs.getString(10);
+                                                                    if(STATUSS.equals("AVALIABLE"))
                                                                     {
                                                                 %>
                                                                 <div class="register-home">
@@ -170,15 +169,15 @@
                                                                 </div>
                                                                 <div class="register-home">                                                                    
                                                                     <a href="addtocart.jsp?ID=<%=rs.getString(1)%>" style="background: #fe9126;">ADD TO CART</a>
-                                                                </div>
+                                                                </div>  
                                                                 <%
-                                                                    } else {
+                                                                    } else {   
                                                                 %>
                                                                 <div class="register-home">                                                                    
                                                                     <a href="" style="background: red;">OUT OF STOCK</a>
                                                                 </div>
                                                                 <%
-                                                                    }
+                                                                    }  
                                                                 %>
                                                             </div>
                                                         </div>
@@ -187,8 +186,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <%                                        
-                                            }
+                                    <%        
+                                        }
                                       con.close();  
                                       }catch(Exception ee)
                                       {

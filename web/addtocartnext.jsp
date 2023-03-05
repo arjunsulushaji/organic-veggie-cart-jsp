@@ -67,6 +67,7 @@ String time=TIME_FORMAT.format(t);
 
 <%      
       String USERID="";
+      String USERNAME="";
       try
       {
          Class.forName("com.mysql.jdbc.Driver");  
@@ -76,7 +77,8 @@ String time=TIME_FORMAT.format(t);
         java.sql.ResultSet rs=stmt.executeQuery(sele);  
          if(rs.next()) 
             {
-               USERID=rs.getString(1);               
+               USERID=rs.getString(1);   
+               USERNAME=rs.getString(2); 
             }
         con.close();  
         }catch(Exception ee)
@@ -86,14 +88,40 @@ String time=TIME_FORMAT.format(t);
 %>
 
 <%
+      int i=100;
+      String OID="OID";
       try
       {
       Class.forName("com.mysql.jdbc.Driver");  
     java.sql.Connection con=java.sql.DriverManager.getConnection( "jdbc:mysql://localhost:3306/organic_veggies","root","");  
     //here sonoo is database name, root is username and password  
     java.sql.Statement stmt=con.createStatement();  
-    String ins="insert into cart(CARTID,VEGID,FARID,USERID,FARNAME,SHOPNAME,VEGNAME,QUANTITY,PRICE,DATE,TIME) values('"+CARTID+"','"+VID+"','"+FID+"','"+USERID+"','"+FARMERNAME+"','"+SHOPNAME+"','"+VNAME+"','"+RQUANTITY+"','"+PRICE+"','"+date+"','"+time+"')";    
-    stmt.executeUpdate(ins);    
+    String sele="select * from orders";
+    java.sql.ResultSet rs=stmt.executeQuery(sele);  
+    while(rs.next())  
+        i++;
+    con.close();  
+    }catch(Exception ee)
+    {
+    out.println("error "+ee);
+   }
+%>
+<%
+  long currentTime = System.currentTimeMillis();
+%>
+
+
+<%
+      try
+      {
+      Class.forName("com.mysql.jdbc.Driver");  
+    java.sql.Connection con=java.sql.DriverManager.getConnection( "jdbc:mysql://localhost:3306/organic_veggies","root","");  
+    //here sonoo is database name, root is username and password  
+    java.sql.Statement stmt=con.createStatement();  
+    String ins="insert into cart(CARTID,VEGID,FARID,USERID,FARNAME,SHOPNAME,VEGNAME,QUANTITY,PRICE,DATE,TIME) values('"+CARTID+"','"+VID+"','"+FID+"','"+USERID+"','"+FARMERNAME+"','"+SHOPNAME+"','"+VNAME+"','"+RQUANTITY+"','"+PRICE+"','"+date+"','"+time+"')";
+    String inss="insert into orders(ORDERID,FID,FNAME,SHOPNAME,VID,UID,VNAME,UNAME,QUANTITY,DATE,TIME,STATUS,ORDERSTATUS) values('"+OID+i+currentTime+"','"+FID+"','"+FARMERNAME+"','"+SHOPNAME+"','"+VID+"','"+USERID+"','"+VNAME+"','"+USERNAME+"','"+RQUANTITY+"','"+date+"','"+time+"','order placed','false')";    
+    stmt.executeUpdate(ins);   
+    stmt.executeUpdate(inss);
     con.close();  
     }catch(Exception ee)
     {

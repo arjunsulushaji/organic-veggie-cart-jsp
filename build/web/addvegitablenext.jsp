@@ -46,14 +46,13 @@ String time=TIME_FORMAT.format(t);
       ID = request.getParameter("ID");
       VEGITABLE = request.getParameter("VEGITABLE");
       AMOUNT = request.getParameter("AMOUNT");
-      QUANTITY = request.getParameter("QUANTITY");
       try
       {
       Class.forName("com.mysql.jdbc.Driver");  
     java.sql.Connection con=java.sql.DriverManager.getConnection( "jdbc:mysql://localhost:3306/organic_veggies","root","");  
     //here sonoo is database name, root is username and password  
     java.sql.Statement stmt=con.createStatement();  
-    String ins="insert into vegitable(VID,FID,FNAME,FDISTRICT,SHOPNAME,VNAME,VAMOUNT,VQUANTITY,AQUANTITY,DATE,TIME,STATUS) values('"+ID+"','"+FID+"','"+FNAME+"','"+FDISTRICT+"','"+SHOPNAME+"','"+VEGITABLE+"','"+AMOUNT+"','"+QUANTITY+"','"+QUANTITY+"','"+date+"','"+time+"','AVALIABLE')";
+    String ins="insert into vegitable(VID,FID,FNAME,FDISTRICT,SHOPNAME,VNAME,VAMOUNT,DATE,TIME,STATUS) values('"+ID+"','"+FID+"','"+FNAME+"','"+FDISTRICT+"','"+SHOPNAME+"','"+VEGITABLE+"','"+AMOUNT+"','"+date+"','"+time+"','AVALIABLE')";
     stmt.executeUpdate(ins);
     con.close();  
     }catch(Exception ee)

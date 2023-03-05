@@ -136,8 +136,7 @@
                     <form action="addtocartnext.jsp" method="post">                                               
                         <div style="padding-top: 15px;">
                             <p>NAME : <%=NAME%></p>
-                            <p>PRICE : <%=AMOUNT%>/kg</p>
-                            <p>AVALIABLE QUANTITY : <%=QUANTITY%>kg</p>
+                            <p>PRICE : <%=AMOUNT%>/kg</p>                            
                         </div>
                         <input type="number" placeholder="Enter required quatity in kilo grams" required="" name="RQ">
                         <input type="text" value="CID<%=UMOB%>" readonly="" required="" name="CARTID" style="display:none;">

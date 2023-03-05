@@ -3,7 +3,6 @@
       session.setAttribute("ID",ID);
       String NAME="";
       String AMOUNT="";
-      String QUANTITY="";
       try
       {
          Class.forName("com.mysql.jdbc.Driver");  
@@ -15,8 +14,7 @@
          if(rs.next()) 
             {
                NAME=rs.getString(6);
-               AMOUNT=rs.getString(7);
-               QUANTITY=rs.getString(9);
+               AMOUNT=rs.getString(7);               
             }
         con.close();  
         }catch(Exception ee)
@@ -135,8 +133,7 @@
                     <form action="buynownext.jsp" method="post">                                               
                         <div style="padding-top: 15px;">
                             <p>NAME : <%=NAME%></p>
-                            <p>PRICE : <%=AMOUNT%>/kg</p>
-                            <p>AVALIABLE QUANTITY : <%=QUANTITY%>kg</p>
+                            <p>PRICE : <%=AMOUNT%>/kg</p>                           
                         </div>
                         <input type="number" placeholder="Enter required quatity in kilo grams" required="" name="RQ">
                         <select name="PAYMENT" id="" class="mt-2" required="" style="width: 244px;
@@ -149,8 +146,7 @@
                         </select>
                         <input type="text" value="OID<%=i%><%=currentTime%>" readonly="" required="" name="OID" style="display:none;">
                         <input type="text" value="<%=NAME%>" readonly="" required="" name="NAME" style="display:none;">
-                        <input type="number" value="<%=AMOUNT%>" readonly=""  required=" " name="AMOUNT"style="display:none;">      
-                        <input type="number"  value="<%=QUANTITY%>" readonly=""  required=" " name="QUANTITY" style="display:none;"> 
+                        <input type="number" value="<%=AMOUNT%>" readonly=""  required=" " name="AMOUNT"style="display:none;">                             
                         <input type="submit" value="Submit">
                     </form>
                 </div>

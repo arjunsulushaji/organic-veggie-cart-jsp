@@ -116,8 +116,7 @@
                             <option value="CARROT">CARROT</option>
                         <option value="CHILLI">CHILLI</option>                            
                         </select>
-                        <input type="number" placeholder="Enter Amount" required=" " name="AMOUNT" >
-                        <input type="number" placeholder="Enter Quantity" required=" " name="QUANTITY">                                               
+                        <input type="number" placeholder="Enter Amount" required=" " name="AMOUNT" >                                                                      
                         <input type="submit" value="Submit">
                     </form>
                 </div>
