@@ -132,6 +132,7 @@
 
                                     <%
                                 String ID=(String)session.getAttribute("ID");
+                                String QUANTITY="";                                
                                 try
                                 {
                                 Class.forName("com.mysql.jdbc.Driver");  
@@ -141,7 +142,8 @@
                                java.sql.ResultSet rs=stmt.executeQuery(sele);  
                               while(rs.next()) 
                               {
-    
+                                    QUANTITY = rs.getString(9);
+                                    int Q = Integer.parseInt(QUANTITY.trim());                                    
                                     %>
                                     <div class="col-md-4 top_brand_left">
                                         <div class="hover14 column">
@@ -158,13 +160,26 @@
                                                                 <h4>Rs : <%=rs.getString(7)%>/kg <span>RS : 100/kg</span></h4>
                                                                 <h6 style="padding-top: 5px;" class="text-center">avaliable : <%=rs.getString(9)%>kg </h6>
                                                             </div>
-                                                            <div class="snipcart-details top_brand_home_details">
+                                                            <div class="snipcart-details top_brand_home_details">                                                               
+                                                                <%
+                                                                    if(Q > 0)
+                                                                    {
+                                                                %>
                                                                 <div class="register-home">
                                                                     <a href="buynow.jsp?ID=<%=rs.getString(1)%>" style="background: #fe9126;">BUY NOW</a>                                                                    
                                                                 </div>
                                                                 <div class="register-home">                                                                    
-                                                                    <a href="" style="background: #fe9126;">ADD TO CART</a>
+                                                                    <a href="addtocart.jsp?ID=<%=rs.getString(1)%>" style="background: #fe9126;">ADD TO CART</a>
                                                                 </div>
+                                                                <%
+                                                                    } else {
+                                                                %>
+                                                                <div class="register-home">                                                                    
+                                                                    <a href="" style="background: red;">OUT OF STOCK</a>
+                                                                </div>
+                                                                <%
+                                                                    }
+                                                                %>
                                                             </div>
                                                         </div>
                                                     </figure>
@@ -172,7 +187,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <%
+                                    <%                                        
                                             }
                                       con.close();  
                                       }catch(Exception ee)

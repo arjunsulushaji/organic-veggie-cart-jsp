@@ -133,8 +133,7 @@
                                         <th scope="col">TOTAL QUANTITY</th>
                                         <th scope="col">AVALIABLE QUANTITY</th>
                                         <th scope="col">TIME</th>
-                                        <th scope="col">DATE</th>  
-                                        <th scope="col">STATUS</th> 
+                                        <th scope="col">DATE</th>                                         
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -156,8 +155,7 @@
                                         <th scope="row"><%=rs.getString(8)%> KG</th>
                                         <th scope="row"><%=rs.getString(9)%> KG</th>
                                         <th scope="row"><%=rs.getString(11)%></th>   
-                                        <th scope="row"><%=rs.getString(10)%></th> 
-                                        <th scope="row"><%=rs.getString(12)%></th> 
+                                        <th scope="row"><%=rs.getString(10)%></th>                                          
                                     </tr>
                                     <%
                                               }
@@ -185,12 +183,12 @@
                             <table class="table" style="margin-top: 25px;">
                                 <thead class="thead-dark bg-success">
                                     <tr>
-                                        <th scope="col">NAME</th>
-                                        <th scope="col">EMAIL</th>
-                                        <th scope="col">SHOP NAME</th>
-                                        <th scope="col">DISTRCIT</th>
-                                        <th scope="col">MOBNO</th>
-                                        <th scope="col">ADDRESS</th>
+                                        <th scope="col">BUYER NAME</th>
+                                        <th scope="col">VEGITABLE</th>
+                                        <th scope="col">QUANTITY</th>
+                                        <th scope="col">DATE</th>
+                                        <th scope="col">TIME</th>  
+                                        <th scope="col">RESPONSE</th>  
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -200,19 +198,19 @@
                                 Class.forName("com.mysql.jdbc.Driver");  
                               java.sql.Connection con=java.sql.DriverManager.getConnection( "jdbc:mysql://localhost:3306/organic_veggies","root","");  
                               java.sql.Statement stmt=con.createStatement();  
-                             String sele="SELECT *FROM farmer ";
+                             String sele="SELECT *FROM orders where FID='"+ID+"'  ";
                                java.sql.ResultSet rs=stmt.executeQuery(sele);  
                               while(rs.next()) 
                               {
     
                                     %>
                                     <tr>
-                                        <th scope="row"><%=rs.getString(2)%></th>
-                                        <th scope="row"><%=rs.getString(3)%></th>
-                                        <th scope="row"><%=rs.getString(5)%></th>
-                                        <th scope="row"><%=rs.getString(6)%></th>
-                                        <th scope="row"><%=rs.getString(7)%></th>
                                         <th scope="row"><%=rs.getString(8)%></th>
+                                        <th scope="row"><%=rs.getString(7)%></th>
+                                        <th scope="row"><%=rs.getString(9)%>kg</th>
+                                        <th scope="row"><%=rs.getString(10)%></th>
+                                        <th scope="row"><%=rs.getString(11)%></th>
+                                        <th scope="row"><a style="background: #fe9126;" href="farmernext.jsp?ID=<%=rs.getString(1)%>">SENT</a></th>
                                     </tr>
                                     <%
                                               }

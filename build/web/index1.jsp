@@ -111,8 +111,8 @@
                     <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="index1.jsp" class="act">Home</a></li>
-                            <li><a href="">Cart</a></li>
-                            <li><a href="">Orders</a></li>                            
+                            <li><a href="cart.jsp?ID=<%=ID%>">Cart</a></li>
+                            <li><a href="orders.jsp?ID=<%=ID%>">Orders</a></li>                            
                             <!-- Mega Menu -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">District<b class="caret"></b></a>

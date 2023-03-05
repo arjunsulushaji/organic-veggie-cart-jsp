@@ -77,7 +77,7 @@ String time=TIME_FORMAT.format(t);
     java.sql.Connection con=java.sql.DriverManager.getConnection( "jdbc:mysql://localhost:3306/organic_veggies","root","");  
     //here sonoo is database name, root is username and password  
     java.sql.Statement stmt=con.createStatement();  
-    String ins="insert into orders(ORDERID,FID,FNAME,SHOPNAME,VID,UID,VNAME,UNAME,QUANTITY,DATE,TIME,STATUS) values('"+OID+"','"+FID+"','"+FARMERNAME+"','"+SHOPNAME+"','"+VID+"','"+USERID+"','"+VEGITABLENAME+"','"+USERNAME+"','"+RQ+"','"+date+"','"+time+"','order placed')";
+    String ins="insert into orders(ORDERID,FID,FNAME,SHOPNAME,VID,UID,VNAME,UNAME,QUANTITY,DATE,TIME,STATUS,ORDERSTATUS) values('"+OID+"','"+FID+"','"+FARMERNAME+"','"+SHOPNAME+"','"+VID+"','"+USERID+"','"+VEGITABLENAME+"','"+USERNAME+"','"+RQ+"','"+date+"','"+time+"','order placed','true')";
     String ss="update vegitable set AQUANTITY='"+C+"' where VID='"+VID+"' ";
     stmt.executeUpdate(ins);
     stmt.executeUpdate(ss);
