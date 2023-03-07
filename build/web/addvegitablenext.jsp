@@ -103,7 +103,7 @@ String time=TIME_FORMAT.format(t);
         <div class="agileits_header">
             <div class="container">
                 <div class="w3l_offers">
-                    <p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="products.html">SHOP NOW</a></p>
+<!--                    <p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="products.html">SHOP NOW</a></p>-->
                 </div>
 
                 <div class="clearfix"> </div>
@@ -113,7 +113,7 @@ String time=TIME_FORMAT.format(t);
         <div class="logo_products">
             <div class="container">               
                 <div class="w3ls_logo_products_left">
-                    <h1><a href="index.html">Organic Veggies</a></h1>
+                    <h1><a href="addvegitablenext.jsp">farmer panel</a></h1>
                 </div>
                 <div class="w3l_search">
                     <form action="#" method="post">

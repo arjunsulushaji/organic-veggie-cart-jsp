@@ -45,7 +45,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="agileits_header">
             <div class="container">
                 <div class="w3l_offers">
-                    <p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="products.html">SHOP NOW</a></p>
+<!--                    <p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="products.html">SHOP NOW</a></p>-->
                 </div>
                 
                 <div class="clearfix"> </div>
@@ -55,7 +55,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="logo_products">
             <div class="container">               
                 <div class="w3ls_logo_products_left">
-                    <h1><a href="index.html">Organic Veggies</a></h1>
+                    <h1><a href="signuperr.jsp">Organic Veggies</a></h1>
                 </div>
                 <div class="w3l_search">
                     <form action="#" method="post">
@@ -86,7 +86,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="container">
                 <h2 style="margin-top: 4rem;">User alerady exist</h2>            
                 <div class="register-home">
-                    <a href="signup.jsp">Signup</a>
+                    <a href="signup.jsp">Signup again</a>
                 </div>
             </div>
         </div>

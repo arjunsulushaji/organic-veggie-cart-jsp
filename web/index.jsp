@@ -62,7 +62,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="logo_products">
             <div class="container">
                 <div class="w3ls_logo_products_left">
-                    <h1><a href="index.html">ORGANIC VEGGIES</a></h1>
+                    <h1><a href="index.jsp">ORGANIC VEGGIES</a></h1>
                 </div>
                 <div class="w3l_search">
                     <form action="#" method="post">
@@ -132,7 +132,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                                     <figure>
                                                         <div class="snipcart-item block" >
                                                             <div class="snipcart-thumb">
-                                                                <a href="products.html"><img title=" " alt=" " src="images/shop.png" /></a>		
+                                                                <a href=""><img title=" " alt=" " src="images/shop.png" /></a>		
                                                                 <p><%=rs.getString(5)%></p>
                                                                 <div class="stars">
                                                                     <i class="fa fa-star blue-star" aria-hidden="true"></i>

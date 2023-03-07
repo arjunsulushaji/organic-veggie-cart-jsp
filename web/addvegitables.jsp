@@ -73,18 +73,8 @@
         <div class="logo_products">
             <div class="container">               
                 <div class="w3ls_logo_products_left">
-                    <h1><a href="index.html">Organic Veggies</a></h1>
-                </div>
-                <div class="w3l_search">
-                    <form action="#" method="post">
-                        <input type="search" name="Search" placeholder="Search for a Product..." required="">
-                        <button type="submit" class="btn btn-default search" aria-label="Left Align">
-                            <i class="fa fa-search" aria-hidden="true"> </i>
-                        </button>
-                        <div class="clearfix"></div>
-                    </form>
-                </div>
-
+                    <h1><a href="addvegitables.jsp">FARMER PANEL</a></h1>
+                </div>              
                 <div class="clearfix"> </div>
             </div>
         </div>
@@ -120,9 +110,9 @@
                         <input type="submit" value="Submit">
                     </form>
                 </div>
-                <div class="register-home">
+<!--                <div class="register-home">
                     <a href="farmer.jsp">Home</a>
-                </div>
+                </div>-->
             </div>
         </div>
         <!-- //register -->	

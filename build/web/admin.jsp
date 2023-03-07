@@ -78,7 +78,7 @@
         <div class="logo_products">
             <div class="container">               
                 <div class="w3ls_logo_products_left">
-                    <h1><a href="index.html">admin panel</a></h1>
+                    <h1><a href="admin.jsp">admin panel</a></h1>
                 </div>
                 <div class="w3l_search">
                     <form action="#" method="post">
